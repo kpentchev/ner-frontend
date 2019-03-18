@@ -144,14 +144,15 @@ a {
     margin-top: 2em;
     line-height: 2em;
 
-    mark.org {
-        background-color: $color-org;
-        color: #fff;
-    }
     mark {
         border-radius: 3px;
         padding: 3px 5px;
+        white-space: nowrap;
 
+        &.org {
+            background-color: $color-org;
+            color: #fff;
+        }
         &.per {
             background-color: $color-per;
             color: #fff;

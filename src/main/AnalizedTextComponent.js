@@ -19,11 +19,11 @@ const processText = (text, predictions) => {
         return
     const result = [];
     let lastIdx = 0;
-    predictions.forEach(prediciton => {
-        const ner = text.substring(prediciton.start, prediciton.end)
-        result.push(text.substring(lastIdx, prediciton.start))
-        result.push(<Popover content={ner} title={type2label[prediciton.type]}><mark className={prediciton.type}>{ner}</mark></Popover>)
-        lastIdx = prediciton.end
+    predictions.forEach((prediction, idx) => {
+        const ner = text.substring(prediction.start, prediction.end)
+        result.push(text.substring(lastIdx, prediction.start))
+        result.push(<Popover key={`prediction-${idx}`} content={ner} title={type2label[prediction.type]}><mark className={prediction.type}>{ner}</mark></Popover>)
+        lastIdx = prediction.end
     });
     result.push(text.substring(lastIdx));
     return result;
