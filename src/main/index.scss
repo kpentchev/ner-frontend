@@ -1,0 +1,184 @@
+@import './src/main/var.scss';
+
+.app {
+    min-height: 100%;
+}
+
+.layout {
+    min-height: 100%;
+}
+
+.header {
+    background-color: $color-background-main;
+    box-shadow: 0 2px 8px #f0f1f2;
+    z-index: 10;
+}
+
+.header h1 {
+    color: $color-primary;
+}
+
+.content {
+    @media screen and (min-width: $break-lg) {
+        padding: 0 50px;
+    }
+}
+
+.content-main {
+    background: #fff;
+    padding: 24px;
+}
+
+.ant-layout-sider-trigger {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $color-background-main;
+    color: $color-primary-dark;
+}
+
+.ant-pagination-prev, .ant-pagination-next, .ant-pagination-item {
+    a.ant-pagination-item-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.ant-pagination-item:not(.ant-pagination-disabled) {
+    a.ant-pagination-item-link {
+        background: $color-background-main;
+        color: $color-primary-dark;
+        border-color: $color-primary-dark;
+    }
+}
+
+.ant-avatar.ant-avatar-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ant-table-thead tr.ant-table-row-hover td, .ant-table-tbody tr.ant-table-row-hover td,
+.ant-table-thead tr:hover td, .ant-table-tbody tr:hover td {
+    background-color: $color-background-highlight !important;
+}
+
+.ant-table-thead tr th {
+    background-color: $color-background-dark !important;
+    color: #fff !important;
+    font-weight: 500;
+}
+
+.ant-avatar.ant-avatar-icon.avatar-default {
+    background-color: $color-background-dark;
+}
+
+.ant-table-column-sorter-up.on .anticon-caret-up, .ant-table-column-sorter-down.on .anticon-caret-up,
+.ant-table-column-sorter-up.on .anticon-caret-down, .ant-table-column-sorter-down.on .anticon-caret-down {
+    color: $color-secondary !important;
+}
+
+.ant-table-column-sorter-up:hover .anticon, .ant-table-column-sorter-down:hover .anticon {
+    color: $color-secondary !important;
+}
+
+.title {
+    color: $color-primary-dark;
+}
+
+.ant-input-affix-wrapper .ant-input {
+    min-height: auto !important;
+}
+
+.table-controls {
+    padding: 16px 0;
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-end;
+    flex-flow: nowrap;
+
+    .results-count {
+        color: $color-text-secondary;
+        margin-bottom: 0;
+        flex: 1 1 auto;
+        align-self: flex-end;
+    }
+}
+
+.ant-collapse {
+    background-color: $color-background-dark !important;
+
+    .ant-collapse-item .ant-collapse-header {
+        color: #fff !important;
+    }
+    
+}
+
+.ant-tabs-nav .ant-tabs-tab-active {
+    color: $color-primary-dark !important;
+}
+
+.ant-tabs-ink-bar {
+    background-color: $color-secondary !important;
+}
+
+.ant-btn-primary {
+    background-color: $color-primary !important;
+}
+
+a {
+    color: $color-primary;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    flex-flow: nowrap;
+}
+
+.text-predicitons {
+    margin-top: 2em;
+    line-height: 2em;
+
+    mark.org {
+        background-color: $color-org;
+        color: #fff;
+    }
+    mark {
+        border-radius: 3px;
+        padding: 3px 5px;
+
+        &.per {
+            background-color: $color-per;
+            color: #fff;
+        }
+        &.tim {
+            background-color: $color-tim;
+            color: #fff;
+        }
+        &.gam {
+            background-color: $color-gam;
+            color: #fff;
+        }
+        &.tea {
+            background-color: $color-tea;
+            color: #fff;
+        }
+        &.mon {
+            background-color: $color-mon;
+            color: #fff;
+        }
+        &.geo {
+            background-color: $color-geo;
+            color: #fff;
+        }
+        &.tou {
+            background-color: $color-tou;
+            color: #fff;
+        }
+    }
+}
