@@ -16,7 +16,8 @@ class NerContainer extends React.Component {
         this.state ={
             text: '',
             predictions: [],
-            showResult: false
+            showResult: false,
+            analyzedText: ''
         }
     }
 
@@ -40,7 +41,8 @@ class NerContainer extends React.Component {
             .then(data => {
                 this.setState({
                 predictions: data.predictions,
-                showResult: true
+                showResult: true,
+                analyzedText: this.state.text
             })})
     }
 
@@ -61,7 +63,7 @@ class NerContainer extends React.Component {
                         ANALIZE
                     </Button>
                 </Form>
-                {!!this.state.showResult && <AnalizedTextComponent text={this.state.text} predictions={this.state.predictions} />}
+                {!!this.state.showResult && <AnalizedTextComponent text={this.state.analyzedText} predictions={this.state.predictions} />}
             </div>
         );
     }
