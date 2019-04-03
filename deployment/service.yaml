@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: esports-ner-fe
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: esports-ner-fe
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: esports-ner-fe
+spec:
+  selector:
+    matchLabels:
+      app: esports-ner-fe
+  replicas: 2
+  minReadySeconds: 30
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: esports-ner-fe
+    spec:
+      containers:
+      - name: esports-ner-fe
+        image: kpentchev/esports-ner-fe
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: "0.2"
+            memory: 128Mi

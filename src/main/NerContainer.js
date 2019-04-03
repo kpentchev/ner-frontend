@@ -24,7 +24,7 @@ class NerContainer extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const response = 
-            fetch('http://localhost:5000/predict', {
+            fetch('https://ens.pentchev.eu/predict', {
                 method: 'POST',
                 mode: 'cors',
                 cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached

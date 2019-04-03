@@ -1,9 +1,0 @@
-version: '3.3'
-services:
-  content_service_debug:
-    container_name: frontend_container
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
