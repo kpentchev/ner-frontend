@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, Icon } from 'antd';
 import 'antd/lib/form/style/css';
 import 'antd/lib/input/style/css';
 import 'antd/lib/button/style/css';
+import 'antd/lib/icon/style/css';
 
 import AnalizedTextComponent from '~/main/AnalizedTextComponent';
 
@@ -52,6 +53,12 @@ class NerContainer extends React.Component {
         })
     }
 
+    onSample = () => {
+        this.setState({
+            text: 'Starladder will present the 15th Counter-Strike: Global Offensive (CS:GO) Major, considered to be one of the most prestigious regular events in the game’s calendar. As well as being a first for the Ukraine-based esports company, this will be the first Major to take place in Berlin, from Sept. 5-8 at the Mercedes-Benz Arena.'
+        })
+    }
+
     render() {
         return (
             <div>
@@ -60,7 +67,12 @@ class NerContainer extends React.Component {
                         <TextArea rows={10} cols={200} value={this.state.text} onChange={this.onChangeText} />
                     </Form.Item>
                     <Button type="primary" htmlType="submit" className="login-form-button">
+                        <Icon type="file-search" />
                         ANALIZE
+                    </Button>
+                    <Button type="secondary" className="login-form-button" onClick={this.onSample} style={{'marginLeft': '1ex'}}>
+                        <Icon type="file-text" />
+                        SAMPLE
                     </Button>
                 </Form>
                 {!!this.state.showResult && <AnalizedTextComponent text={this.state.analyzedText} predictions={this.state.predictions} />}
