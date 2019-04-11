@@ -18,12 +18,16 @@ class NerContainer extends React.Component {
             text: '',
             predictions: [],
             showResult: false,
-            analyzedText: ''
+            analyzedText: '',
+            loading: false
         }
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
+        this.setState({
+            loading: true
+        });
         const response = 
             fetch('https://ens.pentchev.eu/predict', {
                 method: 'POST',
@@ -41,9 +45,10 @@ class NerContainer extends React.Component {
             .then(res => res.json())
             .then(data => {
                 this.setState({
-                predictions: data.predictions,
-                showResult: true,
-                analyzedText: this.state.text
+                    predictions: data.predictions,
+                    showResult: true,
+                    analyzedText: this.state.text,
+                    loading: false
             })})
     }
 
@@ -59,6 +64,16 @@ class NerContainer extends React.Component {
         })
     }
 
+    onClear = () => {
+        this.setState({
+            text: '',
+            predictions: [],
+            showResult: false,
+            analyzedText: '',
+            loading: false
+        })
+    }
+
     render() {
         return (
             <div>
@@ -67,12 +82,16 @@ class NerContainer extends React.Component {
                         <TextArea rows={10} cols={200} value={this.state.text} onChange={this.onChangeText} />
                     </Form.Item>
                     <Button type="primary" htmlType="submit" className="login-form-button">
-                        <Icon type="file-search" />
+                        { this.state.loading ? <Icon type="loading" /> : <Icon type="file-search" /> }
                         ANALIZE
                     </Button>
                     <Button type="secondary" className="login-form-button" onClick={this.onSample} style={{'marginLeft': '1ex'}}>
                         <Icon type="file-text" />
                         SAMPLE
+                    </Button>
+                    <Button type="secondary" className="login-form-button" onClick={this.onClear} style={{'marginLeft': '1ex'}}>
+                        <Icon type="stop" />
+                        CLEAR
                     </Button>
                 </Form>
                 {!!this.state.showResult && <AnalizedTextComponent text={this.state.analyzedText} predictions={this.state.predictions} />}
