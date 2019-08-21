@@ -1,6 +1,6 @@
-# Staffy Frontend #
+# NER Frontend #
 
-Web application client for Staffy.
+Web application client for esports NER.
 
 ## Technologies used: ##
 
