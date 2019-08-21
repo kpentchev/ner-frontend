@@ -8,3 +8,6 @@ Web application client for esports NER.
 - babel 7
 - reactjs
 - ant design
+
+## Deploy ##
+Package as docker container and deploy to kubernetes
