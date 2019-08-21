@@ -4,6 +4,7 @@ Web application client for esports NER.
 
 ## Technologies used: ##
 
+- nginx
 - parcel
 - babel 7
 - reactjs
