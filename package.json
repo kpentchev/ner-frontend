@@ -45,7 +45,7 @@
     "deasync": "0.1.14",
     "parcel-plugin-bundle-visualiser": "^1.2.0",
     "sass": "^1.14.1",
-    "serve": "^10.0.2"
+    "serve": "^10.1.2"
   },
   "theme": {
     "primary-color": "#002d60"
